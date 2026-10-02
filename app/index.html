@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>行测工作台</title>
+<meta name="theme-color" content="#4f46e5">
+<meta name="description" content="公务员行测学习工作台：五大模块题库、错题本、积累卡片、学习统计">
+<!-- 手机「添加到主屏幕」后以独立 App 形态运行 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="行测工作台">
+<link rel="apple-touch-icon" href="assets/icon-192.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="app">
+  <!-- ============ 侧边栏 ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">行</div>
+      <div class="brand-text">
+        <div class="brand-title">行测工作台</div>
+        <div class="brand-sub" id="brandSub">公务员备考 · 本地版</div>
+      </div>
+    </div>
+
+    <nav class="nav" id="nav">
+      <a class="nav-item" data-view="home"><span class="ni">首</span>首页看板<i class="badge" id="badgeDue"></i></a>
+      <a class="nav-item" data-view="practice"><span class="ni">刷</span>刷题练习</a>
+      <a class="nav-item" data-view="wrong"><span class="ni">错</span>错题本<i class="badge" id="badgeWrong"></i></a>
+      <a class="nav-item" data-view="fav"><span class="ni">藏</span>收藏题集<i class="badge" id="badgeFav"></i></a>
+      <a class="nav-item" data-view="cards"><span class="ni">积</span>积累专区</a>
+      <a class="nav-item" data-view="stats"><span class="ni">统</span>学习统计</a>
+      <a class="nav-item" data-view="import"><span class="ni">导</span>导入 / 备份</a>
+      <a class="nav-item" data-view="settings"><span class="ni">设</span>设置</a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="tiny" id="bankInfo">题库加载中…</div>
+      <div class="tiny muted">数据保存在本机浏览器</div>
+    </div>
+  </aside>
+
+  <!-- ============ 主区 ============ -->
+  <main class="main">
+    <header class="topbar">
+      <button class="icon-btn only-mobile" id="btnToggleSidebar">☰</button>
+      <div class="topbar-title" id="topbarTitle">首页看板</div>
+      <div class="topbar-right">
+        <input type="search" id="globalSearch" class="search-input" placeholder="搜索题目 / 成语 / 考点…">
+        <div class="streak" id="streakBox" title="连续打卡"></div>
+      </div>
+    </header>
+
+    <div class="content" id="content">
+
+      <!-- 首页 -->
+      <section class="view" id="view-home"></section>
+      <!-- 刷题 -->
+      <section class="view" id="view-practice"></section>
+      <!-- 答题 -->
+      <section class="view" id="view-session"></section>
+      <!-- 错题本 -->
+      <section class="view" id="view-wrong"></section>
+      <!-- 收藏 -->
+      <section class="view" id="view-fav"></section>
+      <!-- 积累 -->
+      <section class="view" id="view-cards"></section>
+      <!-- 统计 -->
+      <section class="view" id="view-stats"></section>
+      <!-- 导入 -->
+      <section class="view" id="view-import"></section>
+      <!-- 设置 -->
+      <section class="view" id="view-settings"></section>
+
+    </div>
+  </main>
+</div>
+
+<!-- 弹层 -->
+<div class="modal-mask" id="modalMask">
+  <div class="modal" id="modalBox"></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<!-- 数据文件 -->
+<script src="data/bank-yanyan.js"></script>
+<script src="data/bank-panduan.js"></script>
+<script src="data/bank-ziliao.js"></script>
+<script src="data/bank-shuliang.js"></script>
+<script src="data/bank-changshi.js"></script>
+<script src="data/bank-custom.js"></script>
+<script src="data/cards-yanyan.js"></script>
+<script src="data/cards-zhengzhi.js"></script>
+<script src="data/cards-custom.js"></script>
+
+<!-- 逻辑 -->
+<script src="js/store.js"></script>
+<script src="js/bank.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/view-home.js"></script>
+<script src="js/view-practice.js"></script>
+<script src="js/view-session.js"></script>
+<script src="js/view-wrong.js"></script>
+<script src="js/view-fav.js"></script>
+<script src="js/view-cards.js"></script>
+<script src="js/view-stats.js"></script>
+<script src="js/view-import.js"></script>
+<script src="js/view-settings.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
