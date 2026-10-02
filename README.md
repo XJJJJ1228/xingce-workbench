@@ -21,15 +21,13 @@
 
 ## 📸 截图
 
-> 请将截图放入 `assets/screenshots/`，并替换下方占位说明。建议包含：首页看板、刷题答题页、错题本、积累专区、导入页。
-
-| 页面 | 说明 |
+| 首页看板 | 刷题练习 |
 | --- | --- |
-| `assets/screenshots/home.png` | 首页看板 |
-| `assets/screenshots/practice.png` | 刷题 / 答题页 |
-| `assets/screenshots/wrong.png` | 错题本 |
-| `assets/screenshots/cards.png` | 积累专区 |
-| `assets/screenshots/import.png` | 导入 / 备份 |
+| ![首页看板](app/assets/screenshots/home.png) | ![刷题练习](app/assets/screenshots/practice.png) |
+
+| 积累专区 | |
+| --- | --- |
+| ![积累专区](app/assets/screenshots/cards.png) | 支持按模块 / 题型 / 小题型 / 栏目多级筛选，五大模块全部命中 |
 
 ---
 
