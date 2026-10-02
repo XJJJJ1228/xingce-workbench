@@ -14,7 +14,7 @@
 - **积累专区**：成语 / 实词 / 政治常识 / 时事政治卡片，支持翻转记忆与标星。
 - **学习统计 & 首页看板**：累计刷题量、各模块正确率、本周时长、待复习错题数。
 - **导入 / 备份**：支持 `.json / .csv / .txt / .md` 导入，提供三种模板；一键备份与合并恢复。
-- **PWA**：可「添加到主屏幕」当作独立 App 使用，支持离线。
+- **PWA**：可「添加到主屏幕」当作独立 App 使用（已配置 manifest）。
 - **本地优先**：数据存于浏览器 `localStorage`，隐私可控。
 
 ---
@@ -74,6 +74,25 @@ node scripts/server.js
 ```
 
 > 想让 AI 代劳？把题目文件（Word / PDF 转文字 / 网页复制文本）直接发给 AI 助手，告诉它「整理进行测 app」，它会按规范格式化并写入题库，刷新即可看到，且你的历史学习数据不会丢失。
+
+### 🛠️ 高级：用脚本批量导入真题 PDF
+
+仓库自带一批 Python / Node 脚本，可把整本**带文字层**的 PDF 题库结构化导入，无需逐题手填：
+
+```bash
+# 1) 抽取文字层（自动探测扫描版）
+python scripts/extract_pdf.py 题库.pdf -o inbox/pdf_text
+
+# 2) 按排版解析（欣说 / 郭熙自带专用解析器；其它格式用通用导入）
+python scripts/parse_xinshuo.py --batch
+python scripts/parse_guoxi.py --q inbox/pdf_text/guoxi_q.txt --a inbox/pdf_text/guoxi_a.txt --out inbox/parsed/guoxi.json
+
+# 3) 把 inbox/ 下的 .json/.csv/.txt/.md 固化进题库（只追加不覆盖）
+node scripts/ingest.js
+```
+
+> ⚠️ **扫描图片版 PDF 没有文字层**，`extract_pdf.py` 会直接警告；这类文件请先用 WPS / Adobe / 微信 的图片转文字，或本地 `tesseract + chi_sim` 做 OCR，再走上面的流程。
+> 脚本细节见 [`SKILL.md`](SKILL.md) 的「PDF / 题库导入管线」章节与 [`references/schema.md`](references/schema.md)。
 
 ---
 
